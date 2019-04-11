@@ -34,6 +34,17 @@ export class ChildComponent implements OnInit {
           console.log('Erreur ! : ' + error);
         }
       );
+    this.http
+      .get<any[]>('https://httpclient-demo.firebaseio.com/appareils.json')
+      .subscribe(
+        (response) => {
+          this.bookListChild = response;
+
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
   //  this.store.dispatch(new Increment());
   }
 }
